@@ -24,7 +24,7 @@ function AppComponent() {
   const getAirQualityPrediction = async () => {
     const post = { fecha: "2023-05-28" }
     try {
-      const res = await axios.post('https://prueba43345.azurewebsites.net/')
+      const res = await axios.post('https://hackathontigress22.azurewebsites.net/')
       console.log(res.data)
       setAirQuality(res.data)
     } catch (e) {
@@ -75,8 +75,8 @@ function AppComponent() {
 
                 </div>
         <div>
-        { Object.keys(airQuality).map((key) => (
-        <div  className="forecast-table">
+        { Object.keys(airQuality).map((key,index) => (
+        <div  key={index} className="forecast-table">
           <div className="forecast-day">{key}</div>
           <div className="forecast-temperature">{airQuality[key].toFixed(2)} µg/m3</div>
         </div>
