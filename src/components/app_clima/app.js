@@ -1,7 +1,10 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './app.css';
+import axios from "axios";
 
-function appComponent() {
+function AppComponent() {
+
+  const [airQuality,setAirQuality] = useState({})
         let today = new Date();
         let options = {
             weekday: 'long',
@@ -18,11 +21,27 @@ function appComponent() {
     // ...and so on
   ];
 
+  const getAirQualityPrediction = async () => {
+    const post = { fecha: "2023-05-28" }
+    try {
+      const res = await axios.post('https://prueba43345.azurewebsites.net/')
+      console.log(res.data)
+      setAirQuality(res.data)
+    } catch (e) {
+      alert(e)
+    }
+  }
+
+  useEffect(()=>{
+    getAirQualityPrediction();
+
+  },[]);
+
   return (
     <div className="app">
       <div className="main_card">
           <div className="card">
-              <h1 className="text-center card-title"> San Nicolas de los Garza</h1>
+              <h1 className="text-center card-title"> Apodaca</h1>
             <h1 className="text-center card-title">Hoy {today.toLocaleString('es-MX', options)}</h1>
             <div className="card-body text-center">
                 Calidad de Aire
@@ -46,7 +65,26 @@ function appComponent() {
           <div className="forecast-temperature">{forecast.temperature}</div>
         </div>
       ))}
+
     </div>
+        </div>
+        <div className="main_card">
+            <div className="card">
+                <div className="forecast-table">
+                    <div className="forecast-day">Pronostico calidad del aire</div>
+
+                </div>
+        <div>
+        { Object.keys(airQuality).map((key) => (
+        <div  className="forecast-table">
+          <div className="forecast-day">{key}</div>
+          <div className="forecast-temperature">{airQuality[key].toFixed(2)} µg/m3</div>
+        </div>
+      ))}
+        </div>
+
+
+          </div>
         </div>
 
     </div>
@@ -54,4 +92,4 @@ function appComponent() {
   );
 }
 
-export default appComponent;
+export default AppComponent;
