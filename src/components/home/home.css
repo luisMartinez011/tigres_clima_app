@@ -1,0 +1,68 @@
+@import url('https://fonts.googleapis.com/css2?family=Secular+One&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+
+}
+
+#tiger {
+    height: 900px;
+}
+
+.container img {
+    margin-top: 2%;
+}
+.container {
+    display: flex;
+    background-image: url("Imagenes/cont.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    height: 968px;
+
+}
+
+.text-container {
+    margin-left: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Secular One', sans-serif;
+}
+
+.text-container h1 {
+margin-right: auto;
+font-size: 120px;
+color: #712434;
+
+}
+
+.text-container h3 {
+font-size: 40px;
+color: #fefefe;
+text-shadow: 1px 1px 1px black, -1px -1px 1px black, 1px -1px 1px black, -1px 1px 1px black;
+}
+
+.buttons-container {
+    display: flex;
+    width: 895px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.boton {
+    background-color: #f5865b ;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-family: 'Secular One', sans-serif;
+    border: 1px solid black;
+    margin-right: 10px;
+    width: 200px;
+    text-align: center;
+
+}
+
+/** Slide two **/
+
